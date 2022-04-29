@@ -1,0 +1,4 @@
+1. Render to a texture(screen resolution) with the object's unique color(hashed index).
+2. Get the mouse position on the screen.
+3. Get the color at the mouse position in the texture array.
+4. Find an object by hashed index(unique color).
