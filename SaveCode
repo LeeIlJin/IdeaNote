@@ -55,3 +55,72 @@ void Alg(int c)
     return;
 }
 
+==============
+
+
+
+#include <iostream>
+#include <memory.h>
+
+using namespace std;
+
+void Sort(int,int*);
+void Alg(int);
+bool Check(int);
+
+int N, M;
+
+int* nums;
+int* result;
+
+int main()
+{
+    cin.tie(NULL);
+    cout.tie(NULL);
+    
+    cin >> N >> M;
+    
+    nums = new int[N];
+    for(int i=0; i<N; i++)
+        cin>> nums[i];
+    
+    result = new int[M];
+    memset(result, 0, M * sizeof(int));
+    
+    Alg(0);
+    
+    
+    delete[] nums;
+    return 0;
+}
+
+bool Check(int c)
+{
+    return true;
+}
+
+void Alg(int c)
+{
+    if(c == M)
+    {
+        for(int i=0; i<M; i++)
+            cout << result[i] << " ";
+        cout << "\n";
+        return;
+    }
+    
+    for(int i=0; i<N; i++)
+    {
+        if(nums[i] < 0)
+            continue;
+        
+        result[c] = nums[i];
+        
+        nums[i] *= -1;
+        Alg(c+1);
+        nums[i] *= -1;
+    }
+    
+    return;
+}
+
